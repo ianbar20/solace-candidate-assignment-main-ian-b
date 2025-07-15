@@ -8,7 +8,7 @@ import { formatPhone, stateMap } from "./utils/utilities";
 import AdvocateModal from "@/components/AdvocateModal";
 import { specialties } from "@/db/seed/advocates";
 
-export default function Page() {
+export default function Home() {
   const [advocates, setAdvocates] = useState<Advocate[]>([]);
   const [filtered, setFiltered] = useState<Advocate[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
