@@ -88,6 +88,8 @@ I would also improve responsive design by cleaning up the mobile layout, as righ
 
 I would add more accessibility features such as ensuring proper color contrast on all text.
 
+Pagination is likely necessary as the number of advocates grows, but this could also be hidden into an infinite scroll design. 
+
 I don't love how the app looks with just tailwind, I would likely use a more aesthetically pleasing component library such as Joy UI.
 
 The phone column is likely not necessary in the table, as it's unlikely a patient cares about a phone number until they've selected an advocate based on other criteria. therefore it could probably just be displayed in the detail modal. I would double check the business requirements of this table before taking away the phone number. If we do want to show the phone column, I left it wide enough to fit up to 14 digits with country codes. Rare case, but some international phone numbers are longer.
