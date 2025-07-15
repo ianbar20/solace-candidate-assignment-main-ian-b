@@ -1,3 +1,35 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@font-face {
+  font-family: 'Mollie glaston Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Mollie glaston Regular'), url('/fonts/MollieGlaston.woff') format('woff');
+  }
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary-bg: #265b4e;
+  --color-primary-text: #285e50;
+  --color-primary-accent: #3a7b6e;
+  --color-light: #f5f5f5;
+  --color-border: #dddddd;
+}
+
+@layer utilities {
+  .tooltip {
+    @apply relative flex;
+  }
+  .tooltip .tooltip-text {
+    @apply invisible absolute left-1/2 -translate-x-1/2 bottom-full mb-1
+      bg-white  text-sm rounded px-2 py-1 whitespace-normal;
+    width: max-content;
+    max-width: 16rem;
+    z-index: 50;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: none;
+  }
+  .tooltip:hover .tooltip-text {
+    @apply visible opacity-100;
+  }
+}

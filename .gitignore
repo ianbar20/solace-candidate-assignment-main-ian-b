@@ -34,3 +34,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# drizzle
+drizzle/**
+
+# But NEVER ignore these:
+!drizzle/*.sql
+!drizzle/meta/
+!drizzle/meta/_journal.json

@@ -1,7 +1,7 @@
-import db from "..";
+import { InferInsertModel } from "drizzle-orm";
 import { advocates } from "../schema";
 
-const specialties = [
+export const specialties = [
   "Bipolar",
   "LGBTQ",
   "Medication/Prescribing",
@@ -30,148 +30,167 @@ const specialties = [
   "Domestic abuse",
 ];
 
-const randomSpecialty = () => {
-  const random1 = Math.floor(Math.random() * 24);
-  const random2 = Math.floor(Math.random() * (24 - random1)) + random1 + 1;
-
-  return [random1, random2];
+const randomSpecialties = (): string[] => {
+  // random number of specialties to be returned, between 1 and specialties.length
+  const maxCount = Math.floor(Math.random() * specialties.length) + 1;
+  // randomize order of specialties
+  const shuffled = [...specialties].sort(() => Math.random() - 0.5);
+  // return maxCount number of randomized specialties
+  return shuffled.slice(0, maxCount);
 };
 
-const advocateData = [
+type AdvocateInsert = InferInsertModel<typeof advocates>;
+
+const advocateData: AdvocateInsert[] = [
   {
     firstName: "John",
     lastName: "Doe",
     city: "New York",
+    state: "NY",
     degree: "MD",
-    specialties: specialties.slice(...randomSpecialty()),
+    specialties: randomSpecialties(),
     yearsOfExperience: 10,
-    phoneNumber: 5551234567,
+    phoneNumber: "5551234567",
   },
   {
     firstName: "Jane",
     lastName: "Smith",
     city: "Los Angeles",
+    state: "CA",
     degree: "PhD",
-    specialties: specialties.slice(...randomSpecialty()),
+    specialties: randomSpecialties(),
     yearsOfExperience: 8,
-    phoneNumber: 5559876543,
+    phoneNumber: "5559876543",
   },
   {
     firstName: "Alice",
     lastName: "Johnson",
     city: "Chicago",
+    state: "IL",
     degree: "MSW",
-    specialties: specialties.slice(...randomSpecialty()),
+    specialties: randomSpecialties(),
     yearsOfExperience: 5,
-    phoneNumber: 5554567890,
+    phoneNumber: "5554567890",
   },
   {
     firstName: "Michael",
     lastName: "Brown",
     city: "Houston",
+    state: "TX",
     degree: "MD",
-    specialties: specialties.slice(...randomSpecialty()),
+    specialties: randomSpecialties(),
     yearsOfExperience: 12,
-    phoneNumber: 5556543210,
+    phoneNumber: "5556543210",
   },
   {
     firstName: "Emily",
     lastName: "Davis",
     city: "Phoenix",
+    state: "AZ",
     degree: "PhD",
-    specialties: specialties.slice(...randomSpecialty()),
+    specialties: randomSpecialties(),
     yearsOfExperience: 7,
-    phoneNumber: 5553210987,
+    phoneNumber: "5553210987",
   },
   {
     firstName: "Chris",
     lastName: "Martinez",
     city: "Philadelphia",
+    state: "PA",
     degree: "MSW",
-    specialties: specialties.slice(...randomSpecialty()),
+    specialties: randomSpecialties(),
     yearsOfExperience: 9,
-    phoneNumber: 5557890123,
+    phoneNumber: "5557890123",
   },
   {
     firstName: "Jessica",
     lastName: "Taylor",
     city: "San Antonio",
+    state: "TX",
     degree: "MD",
-    specialties: specialties.slice(...randomSpecialty()),
+    specialties: randomSpecialties(),
     yearsOfExperience: 11,
-    phoneNumber: 5554561234,
+    phoneNumber: "5554561234",
   },
   {
     firstName: "David",
     lastName: "Harris",
     city: "San Diego",
+    state: "CA",
     degree: "PhD",
-    specialties: specialties.slice(...randomSpecialty()),
+    specialties: randomSpecialties(),
     yearsOfExperience: 6,
-    phoneNumber: 5557896543,
+    phoneNumber: "5557896543",
   },
   {
     firstName: "Laura",
     lastName: "Clark",
     city: "Dallas",
+    state: "TX",
     degree: "MSW",
-    specialties: specialties.slice(...randomSpecialty()),
+    specialties: randomSpecialties(),
     yearsOfExperience: 4,
-    phoneNumber: 5550123456,
+    phoneNumber: "5550123456",
   },
   {
     firstName: "Daniel",
     lastName: "Lewis",
     city: "San Jose",
+    state: "TX",
     degree: "MD",
-    specialties: specialties.slice(...randomSpecialty()),
+    specialties: randomSpecialties(),
     yearsOfExperience: 13,
-    phoneNumber: 5553217654,
+    phoneNumber: "5553217654",
   },
   {
     firstName: "Sarah",
     lastName: "Lee",
     city: "Austin",
+    state: "TX",
     degree: "PhD",
-    specialties: specialties.slice(...randomSpecialty()),
+    specialties: randomSpecialties(),
     yearsOfExperience: 10,
-    phoneNumber: 5551238765,
+    phoneNumber: "5551238765",
   },
   {
     firstName: "James",
     lastName: "King",
     city: "Jacksonville",
+    state: "FL",
     degree: "MSW",
-    specialties: specialties.slice(...randomSpecialty()),
+    specialties: randomSpecialties(),
     yearsOfExperience: 5,
-    phoneNumber: 5556540987,
+    phoneNumber: "5556540987",
   },
   {
     firstName: "Megan",
     lastName: "Green",
     city: "San Francisco",
+    state: "CA",
     degree: "MD",
-    specialties: specialties.slice(...randomSpecialty()),
+    specialties: randomSpecialties(),
     yearsOfExperience: 14,
-    phoneNumber: 5559873456,
+    phoneNumber: "5559873456",
   },
   {
     firstName: "Joshua",
     lastName: "Walker",
     city: "Columbus",
+    state: "OH",
     degree: "PhD",
-    specialties: specialties.slice(...randomSpecialty()),
+    specialties: randomSpecialties(),
     yearsOfExperience: 9,
-    phoneNumber: 5556781234,
+    phoneNumber: "5556781234",
   },
   {
     firstName: "Amanda",
     lastName: "Hall",
     city: "Fort Worth",
+    state: "TX",
     degree: "MSW",
-    specialties: specialties.slice(...randomSpecialty()),
+    specialties: randomSpecialties(),
     yearsOfExperience: 3,
-    phoneNumber: 5559872345,
+    phoneNumber: "5559872345",
   },
 ];
 

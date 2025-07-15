@@ -8,10 +8,20 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      fontFamily: {
+        mollie: ["'Mollie Glaston'", "cursive"],
+      },
+      borderRadius: {
+        'custom': '10px',
+      },
+      colors: {
+        primary: {
+          bg: "#265b4e", 
+          text: "#285e50", 
+          accent: "#3a7b6e", 
+        },
+        light: "#f5f5f5",
+        border: "#dddddd",
       },
     },
   },
