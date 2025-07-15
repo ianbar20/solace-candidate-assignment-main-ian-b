@@ -51,6 +51,7 @@ export default function Page() {
       const matchesSearch =
         adv.firstName.toLowerCase().includes(lower) ||
         adv.lastName.toLowerCase().includes(lower) ||
+       `${adv.firstName} ${adv.lastName}, ${adv.degree}`.toLowerCase().includes(lower) ||
         adv.city.toLowerCase().includes(lower) ||
         adv.state.toLowerCase().includes(lower) ||
         adv.degree.toLowerCase().includes(lower);
