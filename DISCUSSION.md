@@ -103,3 +103,5 @@ I also did not extensively test the application of the Mollie Glaston font that 
 Eventually proper routing would be nice too, at the moment this is just a single page app and it could likely grow. Even right now, a unique URL when viewing the advocate detail page could be nice if the patient wants to save the URL for later.
 
 I also experience a hydration error, I spent some time hunting it down but have not found a solution yet. In the future I would fix this.
+
+A CI/CD pipeline and git hooks would help make code changes more consistent, and have them deploy continuously.

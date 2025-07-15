@@ -11,7 +11,6 @@ export default function AdvocateModal({
   advocate,
   onClose,
 }: AdvocateModalProps) {
-
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
@@ -23,7 +22,7 @@ export default function AdvocateModal({
     >
       <div
         className="bg-white rounded-lg shadow-lg max-w-md p-6 relative animate-fadeIn"
-        // prevent click within modal from closing 
+        // prevent click within modal from closing
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -33,10 +32,7 @@ export default function AdvocateModal({
         >
           ✕
         </button>
-        <h2
-          id="advocate-modal-title"
-          className="text-xl font-semibold mb-4"
-        >
+        <h2 id="advocate-modal-title" className="text-xl font-semibold mb-4">
           {advocate.firstName} {advocate.lastName}, {advocate.degree}
         </h2>
         <div
@@ -48,7 +44,10 @@ export default function AdvocateModal({
           </p>
           <p>
             <strong>Phone:</strong>{" "}
-            <a href={`tel:${advocate.phoneNumber}`} className="underline text-blue-600">
+            <a
+              href={`tel:${advocate.phoneNumber}`}
+              className="underline text-blue-600"
+            >
               {formatPhone(advocate.phoneNumber)}
             </a>
           </p>
@@ -58,7 +57,10 @@ export default function AdvocateModal({
           </p>
           <div>
             <strong>Specialties:</strong>
-            <ul className="flex flex-wrap gap-2 mt-2" aria-label="Specialties list">
+            <ul
+              className="flex flex-wrap gap-2 mt-2"
+              aria-label="Specialties list"
+            >
               {advocate.specialties.map((specialty, index) => (
                 <li
                   key={index}
