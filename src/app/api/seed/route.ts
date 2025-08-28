@@ -1,9 +1,13 @@
+import { NextResponse } from "next/server";
 import db from "../../../db";
 import { advocates } from "../../../db/schema";
 import { advocateData } from "../../../db/seed/advocates";
 
 export async function POST() {
-  const records = await db.insert(advocates).values(advocateData).returning();
+  if (!db) {
+    return NextResponse.json({ error: "Database not available" }, { status: 500 });
+  }
 
-  return Response.json({ advocates: records });
+  const records = await db.insert(advocates).values(advocateData).returning();
+  return NextResponse.json({ advocates: records });
 }
